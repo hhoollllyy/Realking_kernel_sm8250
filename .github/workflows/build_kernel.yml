@@ -10,6 +10,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: get Clang
+      run: |
+        ClangUrl=`(curl https://api.github.com/repos/ZyCromerZ/Clang/releases/latest)|jq -r '.assets[0].browser_download_url'`
+        curl -o Clang.tar.gz $ClangUrl
+        mkdir ./clang
+        tar -zxvf Clang.tar.gz -C ./clang
     - name: show dir
       run: ls
     - name: build
