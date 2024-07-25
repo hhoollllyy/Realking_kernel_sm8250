@@ -1,10 +1,7 @@
 name: build_kernel
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -13,5 +10,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: show dir
+      run: ls
     - name: build
-      run: sh bbuild_kernel.sh
+      run: sh build_kernel.sh
