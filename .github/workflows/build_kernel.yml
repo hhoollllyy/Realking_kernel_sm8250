@@ -16,7 +16,11 @@ jobs:
         wget $ClangUrl -O Clang.tar.gz 
         mkdir ./clang
         tar -zxvf Clang.tar.gz -C ./clang
-    - name: show dir
-      run: ls
+    - name: show dirg
+      run: |
+        ls
+        ls ./clang
+        ls ./clang/bin
+        ./clang/bin/clang --version
     - name: build
       run: sh build_kernel.sh
