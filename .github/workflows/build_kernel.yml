@@ -13,8 +13,12 @@ jobs:
     - name: get Clang
       run: |
         ClangUrl=`(curl https://api.github.com/repos/ZyCromerZ/Clang/releases/latest)|jq -r '.assets[0].browser_download_url'`
-        wget $ClangUrl -O ../Clang.tar.gz 
+        wget -q $ClangUrl -O ../Clang.tar.gz 
         mkdir ../clang
         tar -zxvf ../Clang.tar.gz -C ../clang
     - name: build
       run: sh build_kernel.sh
+    - name: End
+      run: |
+        ls ./out
+        tree ./out
