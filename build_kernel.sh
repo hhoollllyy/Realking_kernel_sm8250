@@ -49,7 +49,8 @@ echo "          BUILDING KERNEL          "
 echo -e "***********************************************$nocol"
 
 # Prompt for device choice
-read -p "Choose device (apollo/alioth): " device
+# read -p "Choose device (apollo/alioth): " device
+device="apollo"
 if [ "$device" = "apollo" ]; then
   KERNEL_DEFCONFIG=apollo_defconfig
   DEVICE_NAME1="apollo"
@@ -67,7 +68,8 @@ else
 fi
 
 # Prompt for MIUI or AOSP
-read -p "Do you want MIUI or AOSP? (miui/aosp): " choice
+# read -p "Do you want MIUI or AOSP? (miui/aosp): " choice
+choice="miui"
 if [ "$choice" = "miui" ]; then
   # Modify the dimensions for MIUI
   if [ "$device" = "apollo" ]; then
